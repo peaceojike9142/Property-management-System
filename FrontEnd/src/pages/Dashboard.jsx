@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+
+const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.href = "/";
+};
+
 function Dashboard() {
     return (
         <div>
@@ -5,7 +12,20 @@ function Dashboard() {
 
             <h2>Welcome Peace 🚀</h2>
 
-            <p>Property Management System</p>
+            <Link to="/my-properties">
+                My Properties
+            </Link>
+            <br /><br />
+            
+            <Link to="/add-property">
+                Add Propert
+            </Link>
+
+            <br /><br />
+
+            <button onClick={handleLogout}>
+                Logout
+            </button>
         </div>
     );
 }
